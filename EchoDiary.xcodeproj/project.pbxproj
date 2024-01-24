@@ -17,6 +17,11 @@
 		D010FE312B6109D500C61EBE /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE302B6109D500C61EBE /* Song.swift */; };
 		D010FE332B610A1000C61EBE /* SongListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE322B610A1000C61EBE /* SongListViewModel.swift */; };
 		D010FE372B6120D900C61EBE /* SongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE362B6120D900C61EBE /* SongListView.swift */; };
+		D010FE3B2B6153FA00C61EBE /* FavoriteSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE3A2B6153FA00C61EBE /* FavoriteSong.swift */; };
+		D010FE3D2B61575700C61EBE /* FavoriteSongListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE3C2B61575700C61EBE /* FavoriteSongListViewModel.swift */; };
+		D010FE3F2B61577C00C61EBE /* FavoriteSongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE3E2B61577C00C61EBE /* FavoriteSongListView.swift */; };
+		D010FE412B6166A200C61EBE /* EditFavoriteSongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE402B6166A200C61EBE /* EditFavoriteSongViewModel.swift */; };
+		D010FE432B61674E00C61EBE /* EditFavoriteSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE422B61674E00C61EBE /* EditFavoriteSongView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		D010FE302B6109D500C61EBE /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		D010FE322B610A1000C61EBE /* SongListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListViewModel.swift; sourceTree = "<group>"; };
 		D010FE362B6120D900C61EBE /* SongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListView.swift; sourceTree = "<group>"; };
+		D010FE3A2B6153FA00C61EBE /* FavoriteSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSong.swift; sourceTree = "<group>"; };
+		D010FE3C2B61575700C61EBE /* FavoriteSongListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSongListViewModel.swift; sourceTree = "<group>"; };
+		D010FE3E2B61577C00C61EBE /* FavoriteSongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSongListView.swift; sourceTree = "<group>"; };
+		D010FE402B6166A200C61EBE /* EditFavoriteSongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFavoriteSongViewModel.swift; sourceTree = "<group>"; };
+		D010FE422B61674E00C61EBE /* EditFavoriteSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFavoriteSongView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				D010FE362B6120D900C61EBE /* SongListView.swift */,
+				D010FE3E2B61577C00C61EBE /* FavoriteSongListView.swift */,
+				D010FE422B61674E00C61EBE /* EditFavoriteSongView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -150,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				D010FE322B610A1000C61EBE /* SongListViewModel.swift */,
+				D010FE3C2B61575700C61EBE /* FavoriteSongListViewModel.swift */,
+				D010FE402B6166A200C61EBE /* EditFavoriteSongViewModel.swift */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -158,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				D010FE302B6109D500C61EBE /* Song.swift */,
+				D010FE3A2B6153FA00C61EBE /* FavoriteSong.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -293,8 +308,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D010FE312B6109D500C61EBE /* Song.swift in Sources */,
+				D010FE432B61674E00C61EBE /* EditFavoriteSongView.swift in Sources */,
+				D010FE412B6166A200C61EBE /* EditFavoriteSongViewModel.swift in Sources */,
+				D010FE3D2B61575700C61EBE /* FavoriteSongListViewModel.swift in Sources */,
 				D010FE332B610A1000C61EBE /* SongListViewModel.swift in Sources */,
+				D010FE3F2B61577C00C61EBE /* FavoriteSongListView.swift in Sources */,
 				D010FE052B61094200C61EBE /* ContentView.swift in Sources */,
+				D010FE3B2B6153FA00C61EBE /* FavoriteSong.swift in Sources */,
 				D010FE032B61094200C61EBE /* EchoDiaryApp.swift in Sources */,
 				D010FE372B6120D900C61EBE /* SongListView.swift in Sources */,
 			);
