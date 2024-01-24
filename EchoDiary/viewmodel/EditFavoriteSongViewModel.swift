@@ -23,7 +23,6 @@ class EditFavoriteSongViewModel: ObservableObject {
     func saveChanges() {
         var favoriteSongs = FavoriteSongManager.shared.favoriteSongs
 
-
         if let index = favoriteSongs.firstIndex(where: { $0.id == editedSong.id }) {
             favoriteSongs[index] = editedSong
             FavoriteSongManager.shared.saveFavoriteSongs(favoriteSongs)

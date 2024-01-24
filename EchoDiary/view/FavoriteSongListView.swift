@@ -27,6 +27,9 @@ struct FavoriteSongListView: View {
                 }
             }
             .navigationTitle("Favorite Songs")
+            .onAppear {
+                viewModel.refreshList()
+            }
         }
     }
 
@@ -37,7 +40,6 @@ struct FavoriteSongListView: View {
         return formatter.string(from: date)
     }
 }
-
 
 #Preview {
     FavoriteSongListView()

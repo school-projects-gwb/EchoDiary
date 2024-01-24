@@ -29,7 +29,6 @@ struct EditFavoriteSongView: View {
             }
         }
         .onAppear {
-            // Set initial values when the view appears
             title = viewModel.editedSong.trackName
             artist = viewModel.editedSong.artistName
             dateAdded = viewModel.editedSong.dateAdded ?? Date()

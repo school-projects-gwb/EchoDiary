@@ -45,7 +45,6 @@ class FavoriteSongManager: ObservableObject {
     }
 
     private init() {
-        // Load favorite songs from UserDefaults
         if let data = userDefaults.data(forKey: key),
            let decodedSongs = try? JSONDecoder().decode([FavoriteSong].self, from: data) {
             favoriteSongs = decodedSongs
@@ -54,7 +53,6 @@ class FavoriteSongManager: ObservableObject {
         }
     }
 
-    // Save favorite songs to UserDefaults
     func saveFavoriteSongs(_ songs: [FavoriteSong]) {
         if let encodedData = try? JSONEncoder().encode(songs) {
             userDefaults.set(encodedData, forKey: key)
