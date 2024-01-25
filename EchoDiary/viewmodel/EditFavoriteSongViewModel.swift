@@ -14,18 +14,25 @@ class EditFavoriteSongViewModel: ObservableObject {
         self.editedSong = song
     }
 
-    func updateDetails(title: String, artist: String, dateAdded: Date) {
-        editedSong.trackName = title
-        editedSong.artistName = artist
-        editedSong.dateAdded = dateAdded
+    func updateSong(title: String, artist: String, dateAdded: Date, note: String) {
+        var updatedSong = editedSong
+        updatedSong.trackName = title
+        updatedSong.artistName = artist
+        updatedSong.dateAdded = dateAdded
+        updatedSong.note = note
+
+        if let index = FavoriteSongManager.shared.favoriteSongs.firstIndex(where: { $0.id == editedSong.id }) {
+            FavoriteSongManager.shared.favoriteSongs[index] = updatedSong
+        }
+
+        editedSong = updatedSong
     }
 
     func saveChanges() {
-        var favoriteSongs = FavoriteSongManager.shared.favoriteSongs
+        FavoriteSongManager.shared.saveFavoriteSongs(FavoriteSongManager.shared.favoriteSongs)
+    }
 
-        if let index = favoriteSongs.firstIndex(where: { $0.id == editedSong.id }) {
-            favoriteSongs[index] = editedSong
-            FavoriteSongManager.shared.saveFavoriteSongs(favoriteSongs)
-        }
+    func deleteSong() {
+        FavoriteSongManager.shared.deleteSong(id: editedSong.id)
     }
 }

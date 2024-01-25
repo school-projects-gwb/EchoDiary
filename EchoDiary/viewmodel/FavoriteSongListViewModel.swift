@@ -19,14 +19,13 @@ class FavoriteSongListViewModel: ObservableObject {
     }
 
     func refreshList() {
-        // Simulate refreshing the list by re-loading data from UserDefaults
         loadFavoriteSongs()
     }
 
     private func loadFavoriteSongs() {
         if let data = UserDefaults.standard.data(forKey: "favoriteSongs"),
            let decodedSongs = try? JSONDecoder().decode([FavoriteSong].self, from: data) {
-            favoriteSongs = decodedSongs
+            favoriteSongs = decodedSongs.sorted(by: { $0.dateAdded ?? Date() > $1.dateAdded ?? Date() })
         } else {
             favoriteSongs = []
         }
@@ -44,5 +43,10 @@ class FavoriteSongListViewModel: ObservableObject {
         if let encodedData = try? JSONEncoder().encode(songs) {
             UserDefaults.standard.set(encodedData, forKey: "favoriteSongs")
         }
+    }
+    
+    func deleteSongs(at offsets: IndexSet) {
+        favoriteSongs.remove(atOffsets: offsets)
+        saveFavoriteSongs(favoriteSongs)
     }
 }

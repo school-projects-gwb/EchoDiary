@@ -73,8 +73,6 @@ class SongListViewModel: ObservableObject {
                 return
             }
             
-            print(url.absoluteString)
-            
             let (data, _) = try await URLSession.shared.data(from: url)
             
             let decodedResponse = try JSONDecoder().decode(SongResult.self, from: data)

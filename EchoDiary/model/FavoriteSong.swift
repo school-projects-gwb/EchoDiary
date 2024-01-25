@@ -13,13 +13,15 @@ struct FavoriteSong : Codable, Identifiable {
     var artistName: String
     var artworkUrl: String
     var dateAdded: Date?
+    var note: String?
     
-    init(id: UUID = UUID(), trackName: String, artistName: String, artworkUrl: String, dateAdded: Date? = nil) {
+    init(id: UUID = UUID(), trackName: String, artistName: String, artworkUrl: String, dateAdded: Date? = Date()) {
         self.id = id
         self.trackName = trackName
         self.artistName = artistName
         self.artworkUrl = artworkUrl
         self.dateAdded = dateAdded
+        self.note = ""
     }
     
     static var example: FavoriteSong {
@@ -53,9 +55,22 @@ class FavoriteSongManager: ObservableObject {
         }
     }
 
-    func saveFavoriteSongs(_ songs: [FavoriteSong]) {
+    func addSong(favoriteSong: FavoriteSong) {
+        favoriteSongs.append(favoriteSong)
+        
+        if let encodedData = try? JSONEncoder().encode(favoriteSongs) {
+            userDefaults.set(encodedData, forKey: key)
+        }
+    }
+    
+    func saveFavoriteSongs(_ songs: [FavoriteSong]) {        
         if let encodedData = try? JSONEncoder().encode(songs) {
             userDefaults.set(encodedData, forKey: key)
         }
+    }
+    
+    func deleteSong(id: UUID) {
+        favoriteSongs.removeAll { $0.id == id }
+        saveFavoriteSongs(favoriteSongs)
     }
 }

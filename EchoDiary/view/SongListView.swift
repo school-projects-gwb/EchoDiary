@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct SongListView: View {
-    
     @StateObject var viewModel = SongListViewModel()
     
     var body: some View {
         NavigationView {
             List(viewModel.songs) { song in
                 HStack {
-                    // Song Art Image
                     AsyncImage(url: URL(string: song.artworkUrl30)) { image in
                         image
                             .resizable()
@@ -23,13 +21,11 @@ struct SongListView: View {
                             .frame(width: 30, height: 30)
                             .cornerRadius(5)
                     } placeholder: {
-                        // Placeholder image or activity indicator can be added here
                         Color.gray
                             .frame(width: 30, height: 30)
                             .cornerRadius(5)
                     }
                     
-                    // Song Title and Artist Name
                     VStack(alignment: .leading) {
                         Text(song.trackName)
                             .font(.headline)
@@ -39,7 +35,6 @@ struct SongListView: View {
                     }
                     .padding(.leading, 8)
                     
-                    // Favorite Button
                     Spacer()
                     Button(action: {
                         addSongToFavorites(song)
@@ -64,12 +59,8 @@ struct SongListView: View {
             artworkUrl: song.artworkUrl30
         )
 
-        // Get existing favorite songs, add the new one, and save the updated list
-        var favoriteSongs = FavoriteSongManager.shared.favoriteSongs
-        favoriteSongs.append(favoriteSong)
-        FavoriteSongManager.shared.saveFavoriteSongs(favoriteSongs)
+        FavoriteSongManager.shared.addSong(favoriteSong: favoriteSong)
 
-        // Optionally, you can update UI or show a confirmation message
         print("Added to favorites: \(favoriteSong.trackName) by \(favoriteSong.artistName)")
     }
 }
