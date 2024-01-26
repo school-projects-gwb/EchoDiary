@@ -1,14 +1,9 @@
-//
-//  SongListView.swift
-//  EchoDiary
-//
-//  Created by JVH on 24/01/2024.
-//
-
 import SwiftUI
 
 struct SongListView: View {
     @StateObject var viewModel = SongListViewModel()
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     
     var body: some View {
         NavigationView {
@@ -49,6 +44,9 @@ struct SongListView: View {
             .listStyle(.plain)
             .searchable(text: $viewModel.searchTerms)
             .navigationTitle("Search songs")
+            .alert(isPresented: $showAlert) {
+                            Alert(title: Text("Success"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+                        }
         }
     }
     
@@ -60,8 +58,9 @@ struct SongListView: View {
         )
 
         FavoriteSongManager.shared.addSong(favoriteSong: favoriteSong)
-
-        print("Added to favorites: \(favoriteSong.trackName) by \(favoriteSong.artistName)")
+        
+        alertMessage = "Added to favorites: \(favoriteSong.trackName) by \(favoriteSong.artistName)"
+        showAlert = true
     }
 }
 

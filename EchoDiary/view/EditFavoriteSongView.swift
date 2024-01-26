@@ -1,10 +1,3 @@
-//
-//  EditFavoriteSongView.swift
-//  EchoDiary
-//
-//  Created by JVH on 24/01/2024.
-//
-
 import SwiftUI
 
 struct EditFavoriteSongView: View {
@@ -23,8 +16,9 @@ struct EditFavoriteSongView: View {
             Section(header: Text("Details")) {
                 TextField("Title", text: $title)
                 TextField("Artist", text: $artist)
-                TextField("Note", text: $note)
-                DatePicker("Date Added", selection: $dateAdded, displayedComponents: .date)
+                TextEditor(text: $note)
+                    .frame(height: 100)
+                DatePicker("Entry date", selection: $dateAdded, displayedComponents: .date)
             }
 
             Section {
@@ -36,7 +30,7 @@ struct EditFavoriteSongView: View {
                     showAlert = true
                 }
 
-                Button("Delete Song") {
+                Button("Delete Entry") {
                     isDelete = true
                     showAlert = true
                 }
@@ -47,14 +41,18 @@ struct EditFavoriteSongView: View {
             title = viewModel.editedSong.trackName
             artist = viewModel.editedSong.artistName
             dateAdded = viewModel.editedSong.dateAdded ?? Date()
-            note = viewModel.editedSong.note ?? ""
+            note = viewModel.editedSong.note ?? "Dear diary.."
+            
+            if (note.isEmpty) {
+                note = "Dear diary.."
+            }
         }
-        .navigationTitle("Edit Song")
+        .navigationTitle("Edit diary entry")
         .alert(isPresented: $showAlert) {
             if isDelete {
                 return Alert(
                     title: Text("Confirmation"),
-                    message: Text("Are you sure you want to delete this song?"),
+                    message: Text("Are you sure you want to delete this entry?"),
                     primaryButton: .cancel(),
                     secondaryButton: .destructive(Text("Delete")) {
                         viewModel.deleteSong()
@@ -62,7 +60,7 @@ struct EditFavoriteSongView: View {
                     }
                 )
             } else {
-                return Alert(title: Text("Success"), message: Text("Song saved successfully!"), dismissButton: .default(Text("OK")) {
+                return Alert(title: Text("Success"), message: Text("Entry saved successfully!"), dismissButton: .default(Text("OK")) {
                     presentationMode.wrappedValue.dismiss()
                 })
             }

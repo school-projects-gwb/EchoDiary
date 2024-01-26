@@ -1,19 +1,10 @@
-//
-//  Song.swift
-//  EchoDiary
-//
-//  Created by JVH on 24/01/2024.
-//
-
 import Foundation
 
-// MARK: - SongResult
 struct SongResult: Codable {
     let resultCount: Int	
     let results: [Song]
 }
 
-// MARK: - Song
 struct Song: Codable, Identifiable {
     let wrapperType, kind: String
     let id: Int

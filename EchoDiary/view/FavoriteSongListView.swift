@@ -14,44 +14,54 @@ struct FavoriteSongListView: View {
         NavigationView {
             List(viewModel.favoriteSongs) { favoriteSong in
                 NavigationLink(destination: EditFavoriteSongView(viewModel: EditFavoriteSongViewModel(song: favoriteSong))) {
-                    HStack {
-                        AsyncImage(url: URL(string: favoriteSong.artworkUrl)) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(5)
-                        } placeholder: {
-                            Color.gray
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(5)
-                        }
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("\(formattedDate(favoriteSong.dateAdded))")
+                            .font(.headline)
+                            .foregroundColor(.primary) // Use dynamic text color
 
-                        VStack(alignment: .leading) {
-                            Text(favoriteSong.trackName)
-                                .font(.headline)
-                            Text(favoriteSong.artistName)
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                            Text("Added on: \(formattedDate(favoriteSong.dateAdded))")
-                                .font(.caption)
-                                .foregroundColor(.gray)
+                        HStack(spacing: 8) {
+                            AsyncImage(url: URL(string: favoriteSong.artworkUrl)) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 50, height: 50)
+                                    .cornerRadius(5)
+                            } placeholder: {
+                                Color.gray
+                                    .frame(width: 50, height: 50)
+                                    .cornerRadius(5)
+                            }
 
-                            if let note = favoriteSong.note, !note.isEmpty {
-                                Text(note)
-                                    .font(.callout)
-                                    .foregroundColor(.pink)
+                            VStack(alignment: .leading) {
+                                Text(favoriteSong.trackName)
+                                    .font(.subheadline)
+                                    .foregroundColor(.primary) // Use dynamic text color
+                                Text(favoriteSong.artistName)
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary) // Use dynamic text color
                             }
                         }
+
+                        if let note = favoriteSong.note, !note.isEmpty {
+                            Text(trimAndAddDots(note, maxLength: 100))
+                                .font(.caption)
+                                .italic()
+                                .foregroundColor(.primary) // Use dynamic text color
+                        }
                     }
+                    .padding()
+                    .background(Color(UIColor.systemBackground)) // Use dynamic background color
+                    .cornerRadius(8)
+                    .listRowSeparator(.hidden)
                 }
             }
-            .navigationTitle("Favorite Songs")
+            .listStyle(.plain)
+            .background(Color(UIColor.systemBackground)) // Use dynamic background color
+            .navigationTitle("EchoDiary")
             .onAppear {
                 viewModel.refreshList()
             }
         }
-
     }
 
     private func formattedDate(_ date: Date?) -> String {
@@ -60,7 +70,24 @@ struct FavoriteSongListView: View {
         formatter.dateStyle = .short
         return formatter.string(from: date)
     }
+    
+    private func trimAndAddDots(_ input: String, maxLength: Int) -> String {
+        guard input.count > maxLength else {
+            return input
+        }
+
+        let trimmedString = input.prefix(maxLength)
+        return "\(trimmedString)..."
+    }
 }
+
+struct FavoriteSongListView_Previews: PreviewProvider {
+    static var previews: some View {
+        FavoriteSongListView()
+            .preferredColorScheme(.dark) // Preview in dark mode
+    }
+}
+
 
 #Preview {
     FavoriteSongListView()

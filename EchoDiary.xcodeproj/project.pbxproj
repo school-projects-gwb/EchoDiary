@@ -22,6 +22,8 @@
 		D010FE3F2B61577C00C61EBE /* FavoriteSongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE3E2B61577C00C61EBE /* FavoriteSongListView.swift */; };
 		D010FE412B6166A200C61EBE /* EditFavoriteSongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE402B6166A200C61EBE /* EditFavoriteSongViewModel.swift */; };
 		D010FE432B61674E00C61EBE /* EditFavoriteSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE422B61674E00C61EBE /* EditFavoriteSongView.swift */; };
+		D0C7248D2B6394F800CFF69C /* debugData.json in Resources */ = {isa = PBXBuildFile; fileRef = D0C7248C2B6394F800CFF69C /* debugData.json */; };
+		D0C724902B63962700CFF69C /* FavoriteSongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C7248F2B63962700CFF69C /* FavoriteSongManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		D010FE3E2B61577C00C61EBE /* FavoriteSongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSongListView.swift; sourceTree = "<group>"; };
 		D010FE402B6166A200C61EBE /* EditFavoriteSongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFavoriteSongViewModel.swift; sourceTree = "<group>"; };
 		D010FE422B61674E00C61EBE /* EditFavoriteSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFavoriteSongView.swift; sourceTree = "<group>"; };
+		D0C7248C2B6394F800CFF69C /* debugData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = debugData.json; sourceTree = "<group>"; };
+		D0C7248F2B63962700CFF69C /* FavoriteSongManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSongManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 		D010FE012B61094200C61EBE /* EchoDiary */ = {
 			isa = PBXGroup;
 			children = (
+				D0C7248E2B63960700CFF69C /* utility */,
 				D010FE2F2B6109AB00C61EBE /* model */,
 				D010FE2E2B6109A100C61EBE /* viewmodel */,
 				D010FE022B61094200C61EBE /* EchoDiaryApp.swift */,
@@ -164,6 +169,7 @@
 				D010FE322B610A1000C61EBE /* SongListViewModel.swift */,
 				D010FE3C2B61575700C61EBE /* FavoriteSongListViewModel.swift */,
 				D010FE402B6166A200C61EBE /* EditFavoriteSongViewModel.swift */,
+				D0C7248C2B6394F800CFF69C /* debugData.json */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -175,6 +181,14 @@
 				D010FE3A2B6153FA00C61EBE /* FavoriteSong.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		D0C7248E2B63960700CFF69C /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				D0C7248F2B63962700CFF69C /* FavoriteSongManager.swift */,
+			);
+			path = utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +297,7 @@
 			files = (
 				D010FE0B2B61094300C61EBE /* Preview Assets.xcassets in Resources */,
 				D010FE072B61094300C61EBE /* Assets.xcassets in Resources */,
+				D0C7248D2B6394F800CFF69C /* debugData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +327,7 @@
 				D010FE412B6166A200C61EBE /* EditFavoriteSongViewModel.swift in Sources */,
 				D010FE3D2B61575700C61EBE /* FavoriteSongListViewModel.swift in Sources */,
 				D010FE332B610A1000C61EBE /* SongListViewModel.swift in Sources */,
+				D0C724902B63962700CFF69C /* FavoriteSongManager.swift in Sources */,
 				D010FE3F2B61577C00C61EBE /* FavoriteSongListView.swift in Sources */,
 				D010FE052B61094200C61EBE /* ContentView.swift in Sources */,
 				D010FE3B2B6153FA00C61EBE /* FavoriteSong.swift in Sources */,
@@ -476,6 +492,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EchoDiary/Preview Content\"";
+				DEVELOPMENT_TEAM = 55S64JU9HY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -512,6 +529,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EchoDiary/Preview Content\"";
+				DEVELOPMENT_TEAM = 55S64JU9HY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;

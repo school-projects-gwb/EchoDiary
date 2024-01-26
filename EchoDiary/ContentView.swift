@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  EchoDiary
-//
-//  Created by JVH on 24/01/2024.
-//
-
 import SwiftUI
 
 struct ContentView: View {
