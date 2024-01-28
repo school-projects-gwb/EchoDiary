@@ -22,6 +22,7 @@
 		D010FE3F2B61577C00C61EBE /* FavoriteSongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE3E2B61577C00C61EBE /* FavoriteSongListView.swift */; };
 		D010FE412B6166A200C61EBE /* EditFavoriteSongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE402B6166A200C61EBE /* EditFavoriteSongViewModel.swift */; };
 		D010FE432B61674E00C61EBE /* EditFavoriteSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE422B61674E00C61EBE /* EditFavoriteSongView.swift */; };
+		D0BA1EED2B6699DE00F96012 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0BA1EEC2B6699DE00F96012 /* Launch Screen.storyboard */; };
 		D0C7248D2B6394F800CFF69C /* debugData.json in Resources */ = {isa = PBXBuildFile; fileRef = D0C7248C2B6394F800CFF69C /* debugData.json */; };
 		D0C724902B63962700CFF69C /* FavoriteSongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C7248F2B63962700CFF69C /* FavoriteSongManager.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		D010FE3E2B61577C00C61EBE /* FavoriteSongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSongListView.swift; sourceTree = "<group>"; };
 		D010FE402B6166A200C61EBE /* EditFavoriteSongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFavoriteSongViewModel.swift; sourceTree = "<group>"; };
 		D010FE422B61674E00C61EBE /* EditFavoriteSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFavoriteSongView.swift; sourceTree = "<group>"; };
+		D0BA1EEC2B6699DE00F96012 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D0C7248C2B6394F800CFF69C /* debugData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = debugData.json; sourceTree = "<group>"; };
 		D0C7248F2B63962700CFF69C /* FavoriteSongManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSongManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,15 +117,14 @@
 		D010FE012B61094200C61EBE /* EchoDiary */ = {
 			isa = PBXGroup;
 			children = (
+				D010FE092B61094300C61EBE /* Preview Content */,
 				D0C7248E2B63960700CFF69C /* utility */,
 				D010FE2F2B6109AB00C61EBE /* model */,
 				D010FE2E2B6109A100C61EBE /* viewmodel */,
 				D010FE022B61094200C61EBE /* EchoDiaryApp.swift */,
 				D010FE042B61094200C61EBE /* ContentView.swift */,
-				D010FE062B61094300C61EBE /* Assets.xcassets */,
 				D010FE082B61094300C61EBE /* EchoDiary.entitlements */,
 				D010FE2D2B61098C00C61EBE /* view */,
-				D010FE092B61094300C61EBE /* Preview Content */,
 			);
 			path = EchoDiary;
 			sourceTree = "<group>";
@@ -131,6 +132,8 @@
 		D010FE092B61094300C61EBE /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				D0BA1EEC2B6699DE00F96012 /* Launch Screen.storyboard */,
+				D010FE062B61094300C61EBE /* Assets.xcassets */,
 				D010FE0A2B61094300C61EBE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -297,6 +300,7 @@
 			files = (
 				D010FE0B2B61094300C61EBE /* Preview Assets.xcassets in Resources */,
 				D010FE072B61094300C61EBE /* Assets.xcassets in Resources */,
+				D0BA1EED2B6699DE00F96012 /* Launch Screen.storyboard in Resources */,
 				D0C7248D2B6394F800CFF69C /* debugData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,6 +505,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -538,6 +543,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
