@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D00A767D2B7208130061599F /* CurrentLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00A767C2B7208130061599F /* CurrentLocationManager.swift */; };
+		D00A767F2B720B050061599F /* GrantLocationAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00A767E2B720B050061599F /* GrantLocationAccessView.swift */; };
 		D010FE032B61094200C61EBE /* EchoDiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE022B61094200C61EBE /* EchoDiaryApp.swift */; };
 		D010FE052B61094200C61EBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE042B61094200C61EBE /* ContentView.swift */; };
 		D010FE072B61094300C61EBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D010FE062B61094300C61EBE /* Assets.xcassets */; };
@@ -22,6 +24,7 @@
 		D010FE3F2B61577C00C61EBE /* FavoriteSongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE3E2B61577C00C61EBE /* FavoriteSongListView.swift */; };
 		D010FE412B6166A200C61EBE /* EditFavoriteSongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE402B6166A200C61EBE /* EditFavoriteSongViewModel.swift */; };
 		D010FE432B61674E00C61EBE /* EditFavoriteSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010FE422B61674E00C61EBE /* EditFavoriteSongView.swift */; };
+		D077DDAA2B71068400D80814 /* FavoriteSongMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D077DDA92B71068400D80814 /* FavoriteSongMapView.swift */; };
 		D0BA1EED2B6699DE00F96012 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0BA1EEC2B6699DE00F96012 /* Launch Screen.storyboard */; };
 		D0C7248D2B6394F800CFF69C /* debugData.json in Resources */ = {isa = PBXBuildFile; fileRef = D0C7248C2B6394F800CFF69C /* debugData.json */; };
 		D0C724902B63962700CFF69C /* FavoriteSongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C7248F2B63962700CFF69C /* FavoriteSongManager.swift */; };
@@ -45,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D00A767C2B7208130061599F /* CurrentLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationManager.swift; sourceTree = "<group>"; };
+		D00A767E2B720B050061599F /* GrantLocationAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrantLocationAccessView.swift; sourceTree = "<group>"; };
+		D00A76802B7212860061599F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D010FDFF2B61094200C61EBE /* EchoDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EchoDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D010FE022B61094200C61EBE /* EchoDiaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoDiaryApp.swift; sourceTree = "<group>"; };
 		D010FE042B61094200C61EBE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +70,7 @@
 		D010FE3E2B61577C00C61EBE /* FavoriteSongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSongListView.swift; sourceTree = "<group>"; };
 		D010FE402B6166A200C61EBE /* EditFavoriteSongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFavoriteSongViewModel.swift; sourceTree = "<group>"; };
 		D010FE422B61674E00C61EBE /* EditFavoriteSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFavoriteSongView.swift; sourceTree = "<group>"; };
+		D077DDA92B71068400D80814 /* FavoriteSongMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSongMapView.swift; sourceTree = "<group>"; };
 		D0BA1EEC2B6699DE00F96012 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D0C7248C2B6394F800CFF69C /* debugData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = debugData.json; sourceTree = "<group>"; };
 		D0C7248F2B63962700CFF69C /* FavoriteSongManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSongManager.swift; sourceTree = "<group>"; };
@@ -117,6 +124,7 @@
 		D010FE012B61094200C61EBE /* EchoDiary */ = {
 			isa = PBXGroup;
 			children = (
+				D00A76802B7212860061599F /* Info.plist */,
 				D010FE092B61094300C61EBE /* Preview Content */,
 				D0C7248E2B63960700CFF69C /* utility */,
 				D010FE2F2B6109AB00C61EBE /* model */,
@@ -162,6 +170,8 @@
 				D010FE362B6120D900C61EBE /* SongListView.swift */,
 				D010FE3E2B61577C00C61EBE /* FavoriteSongListView.swift */,
 				D010FE422B61674E00C61EBE /* EditFavoriteSongView.swift */,
+				D077DDA92B71068400D80814 /* FavoriteSongMapView.swift */,
+				D00A767E2B720B050061599F /* GrantLocationAccessView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -190,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				D0C7248F2B63962700CFF69C /* FavoriteSongManager.swift */,
+				D00A767C2B7208130061599F /* CurrentLocationManager.swift */,
 			);
 			path = utility;
 			sourceTree = "<group>";
@@ -328,12 +339,15 @@
 			files = (
 				D010FE312B6109D500C61EBE /* Song.swift in Sources */,
 				D010FE432B61674E00C61EBE /* EditFavoriteSongView.swift in Sources */,
+				D00A767F2B720B050061599F /* GrantLocationAccessView.swift in Sources */,
 				D010FE412B6166A200C61EBE /* EditFavoriteSongViewModel.swift in Sources */,
 				D010FE3D2B61575700C61EBE /* FavoriteSongListViewModel.swift in Sources */,
 				D010FE332B610A1000C61EBE /* SongListViewModel.swift in Sources */,
+				D00A767D2B7208130061599F /* CurrentLocationManager.swift in Sources */,
 				D0C724902B63962700CFF69C /* FavoriteSongManager.swift in Sources */,
 				D010FE3F2B61577C00C61EBE /* FavoriteSongListView.swift in Sources */,
 				D010FE052B61094200C61EBE /* ContentView.swift in Sources */,
+				D077DDAA2B71068400D80814 /* FavoriteSongMapView.swift in Sources */,
 				D010FE3B2B6153FA00C61EBE /* FavoriteSong.swift in Sources */,
 				D010FE032B61094200C61EBE /* EchoDiaryApp.swift in Sources */,
 				D010FE372B6120D900C61EBE /* SongListView.swift in Sources */,
@@ -499,6 +513,9 @@
 				DEVELOPMENT_TEAM = 55S64JU9HY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EchoDiary/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow access to your location in order to automatically save your location for diary entries and for display on the map view.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow access to your location in order to automatically save your location for diary entries and for display on the map view.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -517,11 +534,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = echodiary.EchoDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -537,6 +555,9 @@
 				DEVELOPMENT_TEAM = 55S64JU9HY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EchoDiary/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow access to your location in order to automatically save your location for diary entries and for display on the map view.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow access to your location in order to automatically save your location for diary entries and for display on the map view.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -555,11 +576,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = echodiary.EchoDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

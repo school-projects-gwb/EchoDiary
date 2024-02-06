@@ -51,13 +51,17 @@ struct SongListView: View {
     }
     
     private func addSongToFavorites(_ song: Song) {
+        let location = CurrentLocationManager.shared.getCurrentUserLocation()
+        
         let favoriteSong = FavoriteSong(
             trackName: song.trackName,
             artistName: song.artistName,
-            artworkUrl: song.artworkUrl30
+            artworkUrl: song.artworkUrl30,
+            latitude: location.latitude,
+            longitude: location.longitude
         )
 
-        FavoriteSongManager.shared.addSong(favoriteSong: favoriteSong)
+        FavoriteSongManager.shared.addFavoriteSongToUserDefaults(favoriteSong: favoriteSong)
         
         alertMessage = "Added to favorites: \(favoriteSong.trackName) by \(favoriteSong.artistName)"
         showAlert = true

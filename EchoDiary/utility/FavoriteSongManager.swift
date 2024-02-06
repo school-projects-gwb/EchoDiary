@@ -8,7 +8,7 @@ class FavoriteSongManager: ObservableObject {
 
     @Published var favoriteSongs: [FavoriteSong] {
         didSet {
-            saveFavoriteSongs(favoriteSongs)
+            saveFavoriteSongsToUserDefaults(favoriteSongs)
         }
     }
 
@@ -21,7 +21,7 @@ class FavoriteSongManager: ObservableObject {
         }
     }
 
-    func addSong(favoriteSong: FavoriteSong) {
+    func addFavoriteSongToUserDefaults(favoriteSong: FavoriteSong) {
         favoriteSongs.append(favoriteSong)
         
         if let encodedData = try? JSONEncoder().encode(favoriteSongs) {
@@ -29,14 +29,14 @@ class FavoriteSongManager: ObservableObject {
         }
     }
     
-    func saveFavoriteSongs(_ songs: [FavoriteSong]) {
+    func saveFavoriteSongsToUserDefaults(_ songs: [FavoriteSong]) {
         if let encodedData = try? JSONEncoder().encode(songs) {
             userDefaults.set(encodedData, forKey: key)
         }
     }
     
-    func deleteSong(id: UUID) {
+    func deleteFavoriteSong(id: UUID) {
         favoriteSongs.removeAll { $0.id == id }
-        saveFavoriteSongs(favoriteSongs)
+        saveFavoriteSongsToUserDefaults(favoriteSongs)
     }
 }

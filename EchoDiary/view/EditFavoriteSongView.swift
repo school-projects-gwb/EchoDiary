@@ -8,6 +8,8 @@ struct EditFavoriteSongView: View {
     @State private var note = ""
     @State private var showAlert = false
     @State private var isDelete = false
+    @State private var latitude = "0"
+    @State private var longitude = "0"
 
     @Environment(\.presentationMode) var presentationMode
 
@@ -20,11 +22,19 @@ struct EditFavoriteSongView: View {
                     .frame(height: 100)
                 DatePicker("Entry date", selection: $dateAdded, displayedComponents: .date)
             }
+            
+            Section(header: Text("Location: Latitude")) {
+                TextField("Latitude", text: $latitude)
+            }
+            
+            Section(header: Text("Location: Longitude")) {
+                TextField("Longitude", text: $longitude)
+            }
 
             Section {
                 Button("Save Changes") {
-                    viewModel.updateSong(title: title, artist: artist, dateAdded: dateAdded, note: note)
-                    viewModel.saveChanges()
+                    viewModel.updateFavoriteSong(title: title, artist: artist, dateAdded: dateAdded, note: note, latitude: Double(latitude) ?? 1, longitude: Double(longitude) ?? 1)
+                    viewModel.saveFavoriteSongChanges()
 
                     isDelete = false
                     showAlert = true
@@ -42,6 +52,8 @@ struct EditFavoriteSongView: View {
             artist = viewModel.editedSong.artistName
             dateAdded = viewModel.editedSong.dateAdded ?? Date()
             note = viewModel.editedSong.note ?? "Dear diary.."
+            latitude = String(viewModel.editedSong.latitude)
+            longitude = String(viewModel.editedSong.longitude)
             
             if (note.isEmpty) {
                 note = "Dear diary.."
@@ -55,7 +67,7 @@ struct EditFavoriteSongView: View {
                     message: Text("Are you sure you want to delete this entry?"),
                     primaryButton: .cancel(),
                     secondaryButton: .destructive(Text("Delete")) {
-                        viewModel.deleteSong()
+                        viewModel.deleteFavoriteSong()
                         presentationMode.wrappedValue.dismiss()
                     }
                 )

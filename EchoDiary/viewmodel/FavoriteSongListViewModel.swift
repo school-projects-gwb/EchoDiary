@@ -3,19 +3,20 @@ import Combine
 
 class FavoriteSongListViewModel: ObservableObject {
     @Published var favoriteSongs: [FavoriteSong] = []
+    @Published var isMapViewActive = false
 
     private var cancellables = Set<AnyCancellable>()
 
     init() {
-        loadFavoriteSongs()
-        setupObservers()
+        loadFavoriteSongsFromUserDefaults()
+        setupFavoriteSongObservers()
     }
 
     func refreshList() {
-        loadFavoriteSongs()
+        loadFavoriteSongsFromUserDefaults()
     }
 
-    private func loadFavoriteSongs() {
+    private func loadFavoriteSongsFromUserDefaults() {
         if let data = UserDefaults.standard.data(forKey: "favoriteSongs"),
            let decodedSongs = try? JSONDecoder().decode([FavoriteSong].self, from: data) {
             favoriteSongs = decodedSongs.sorted(by: { $0.dateAdded ?? Date() > $1.dateAdded ?? Date() })
@@ -24,7 +25,7 @@ class FavoriteSongListViewModel: ObservableObject {
         }
     }
 
-    private func setupObservers() {
+    private func setupFavoriteSongObservers() {
         $favoriteSongs
             .sink { [weak self] songs in
                 self?.saveFavoriteSongs(songs)
@@ -38,7 +39,7 @@ class FavoriteSongListViewModel: ObservableObject {
         }
     }
     
-    func deleteSongs(at offsets: IndexSet) {
+    func deleteFavoriteSongs(at offsets: IndexSet) {
         favoriteSongs.remove(atOffsets: offsets)
         saveFavoriteSongs(favoriteSongs)
     }

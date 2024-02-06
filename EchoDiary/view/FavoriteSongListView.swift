@@ -1,15 +1,13 @@
-//
-//  FavoriteSongListView.swift
-//  EchoDiary
-//
-//  Created by JVH on 24/01/2024.
-//
-
 import SwiftUI
 
 struct FavoriteSongListView: View {
-    @StateObject private var viewModel = FavoriteSongListViewModel()
-
+    @State private var isMapViewActive = false
+    @ObservedObject private var viewModel: FavoriteSongListViewModel
+    
+    init(viewModel: FavoriteSongListViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         NavigationView {
             List(viewModel.favoriteSongs) { favoriteSong in
@@ -17,7 +15,7 @@ struct FavoriteSongListView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("\(formattedDate(favoriteSong.dateAdded))")
                             .font(.headline)
-                            .foregroundColor(.primary) // Use dynamic text color
+                            .foregroundColor(.primary)
 
                         HStack(spacing: 8) {
                             AsyncImage(url: URL(string: favoriteSong.artworkUrl)) { image in
@@ -35,10 +33,10 @@ struct FavoriteSongListView: View {
                             VStack(alignment: .leading) {
                                 Text(favoriteSong.trackName)
                                     .font(.subheadline)
-                                    .foregroundColor(.primary) // Use dynamic text color
+                                    .foregroundColor(.primary)
                                 Text(favoriteSong.artistName)
                                     .font(.subheadline)
-                                    .foregroundColor(.secondary) // Use dynamic text color
+                                    .foregroundColor(.secondary)
                             }
                         }
 
@@ -46,21 +44,34 @@ struct FavoriteSongListView: View {
                             Text(trimAndAddDots(note, maxLength: 100))
                                 .font(.caption)
                                 .italic()
-                                .foregroundColor(.primary) // Use dynamic text color
+                                .foregroundColor(.primary)
                         }
                     }
                     .padding()
-                    .background(Color(UIColor.systemBackground)) // Use dynamic background color
+                    .background(Color(UIColor.systemBackground))
                     .cornerRadius(8)
                     .listRowSeparator(.hidden)
+                    
                 }
             }
             .listStyle(.plain)
-            .background(Color(UIColor.systemBackground)) // Use dynamic background color
+            .background(Color(UIColor.systemBackground))
             .navigationTitle("EchoDiary")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isMapViewActive.toggle()
+                    }) {
+                        Image(systemName: isMapViewActive ? "list.bullet" : "map")
+                    }
+                }
+            }
             .onAppear {
                 viewModel.refreshList()
             }
+        }
+        .sheet(isPresented: $isMapViewActive) {
+            FavoriteSongMapView(viewModel: viewModel)
         }
     }
 
@@ -83,12 +94,11 @@ struct FavoriteSongListView: View {
 
 struct FavoriteSongListView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoriteSongListView()
-            .preferredColorScheme(.dark) // Preview in dark mode
+        FavoriteSongListView(viewModel: FavoriteSongListViewModel())
+            .preferredColorScheme(.dark)
     }
 }
 
-
 #Preview {
-    FavoriteSongListView()
+    FavoriteSongListView(viewModel: FavoriteSongListViewModel())
 }
