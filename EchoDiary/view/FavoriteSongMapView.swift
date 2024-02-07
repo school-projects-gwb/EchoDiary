@@ -13,7 +13,7 @@ struct FavoriteSongMapView: View {
                 }
             }
             .tint(.purple)
-            .edgesIgnoringSafeArea(.all)
+            .ignoresSafeArea(.all)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

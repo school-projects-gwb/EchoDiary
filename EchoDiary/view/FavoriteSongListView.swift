@@ -71,6 +71,10 @@ struct FavoriteSongListView: View {
             }
         }
         .sheet(isPresented: $isMapViewActive) {
+            Button("Back to list") {
+                isMapViewActive = false
+            }
+            
             FavoriteSongMapView(viewModel: viewModel)
         }
     }
